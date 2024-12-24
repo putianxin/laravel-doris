@@ -1,8 +1,8 @@
 # Laravel-doris
 让drois和starrocks直接使用查询构造器和ORM<br/>
 This laravel extension adds support for doris and starrocks to the query builder and eloquent.<br/>
-不建议在生产环境使用<br/>
-Not recommended for use in production environments<br/>
+另外有支持cte的版本<br>
+There are also versions that support cte
 
 ## Require
 mysqli<br/>
@@ -10,7 +10,7 @@ PDO<br/>
 
 ## Installation
 
-    composer require "wukongdontskipschool/laravel-doris" "^1.0.0"
+    composer require "wukongdontskipschool/laravel-doris":"dev-2.0.0.0"
 
 ## Use
 ```
@@ -46,52 +46,11 @@ $app->register(\Wukongdontskipschool\LaravelDoris\DatabaseServiceProvider::class
 ```
 
 ## 备注 Remark
-#### Example
 ```
-DB::connection('doris')->select('show tables');
-
-XXModel::where('value', '=', 1)->get();
-```
-
-#### DB查询结果集 DB Query result
-```
-// DB开头的查询返回结果集的类型和其他驱动的不同
-// The type of result set returned by a query that starts with DB is different from that of other drivers
-$dorisres = DB::connection('doris')->table(tableName)->all();
-$mysqlres = DB::connection('mysql')->table(tableName)->all();
-dd($dorisres, $mysqlres);
-
-// doris items里的元素类型是array
-// The element type in doris items is array
-^ Illuminate\Support\Collection^ {#375
-  #items: array:1 [
-    0 => array:2 [
-      "id" => 1
-      "name" => "name"
-    ]
-  ]
-  #escapeWhenCastingToString: false
-}
-
-// mysql items里的元素类型是object
-// The element type in mysql items is object
-Illuminate\Support\Collection^ {#368
-  #items: array:1 [
-    0 => {#370id
-      +"id": 1
-      +"name": "name"
-    }
-  ]
-  #escapeWhenCastingToString: false
-}
-
-```
-
-
-#### 其他 Other
-```
-insert() 是不会返回id的，需要自己获取
+insert() 是不会返回id，需要自己获取
          It will not return the id, you need to get your own
+delete() 影响的行数始终返回0
+         The number of rows affected always returns 0
 cursor() 不是真的游标，doris还是会一次性全部返回
          It's not a real cursor. doris will still return all at once
 ```
@@ -101,10 +60,22 @@ cursor() 不是真的游标，doris还是会一次性全部返回
 | Laravel | Package |
 |:--------|:--------|
 | 11.x    | unknown    |
-| 10.x    | unknown     |
+| 10.x    | 2.0.0.0     |
 | 9.x     | unknown     |
-| 8.x     | 1.0.0   |
+| 8.x     | 2.0.0.0   |
 | 7.x     | unknown     |
 | 6.x     | unknown     |
 | 5.8     | unknown     |
 | 5.5–5.7 | unknown     |
+
+
+## 升级事项 Upgrade Notes
+
+### 1.x 升级到 2.x
+- DB::connection('doris')->table($tableName)->get();<br>
+元素由数组升级为和mysql相对应的对象结构<br>
+The element is upgraded from an array to an object structure corresponding to mysql
+- 支持事务（支持的sql需要参考不同版本的doris）<br>
+Support transaction (The supported sql needs to refer to different versions of doris)
+- 插入二进制时转为明文字符串<br>
+Converts to plaintext string when inserting binary
