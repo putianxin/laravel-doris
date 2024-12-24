@@ -12,6 +12,9 @@ PDO<br/>
 
     composer require "wukongdontskipschool/laravel-doris":"2.0.0.0-dev"
 
+    // cte
+    composer require "wukongdontskipschool/laravel-doris":"dev-cte-2.0.0.0"
+
 ## Use
 ```
 // config/database.php
