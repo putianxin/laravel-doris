@@ -10,7 +10,7 @@ PDO<br/>
 
 ## Installation
 
-    composer require "wukongdontskipschool/laravel-doris":"dev-2.0.0.0"
+    composer require "wukongdontskipschool/laravel-doris":"2.0.0.0-dev"
 
 ## Use
 ```
