@@ -10,7 +10,10 @@ PDO<br/>
 
 ## Installation
 
-    composer require "wukongdontskipschool/laravel-doris":"2.0.0.0-dev"
+    composer require "wukongdontskipschool/laravel-doris":"2.0.0.2-dev"
+
+    // cte
+    composer require "wukongdontskipschool/laravel-doris":"dev-cte-2.0.0.2"
 
 ## Use
 ```
@@ -60,9 +63,9 @@ cursor() 不是真的游标，doris还是会一次性全部返回
 | Laravel | Package |
 |:--------|:--------|
 | 11.x    | unknown    |
-| 10.x    | 2.0.0.0     |
+| 10.x    | 2.0.0.x     |
 | 9.x     | unknown     |
-| 8.x     | 2.0.0.0   |
+| 8.x     | 2.0.0.x   |
 | 7.x     | unknown     |
 | 6.x     | unknown     |
 | 5.8     | unknown     |
