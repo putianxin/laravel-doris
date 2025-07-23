@@ -7,7 +7,7 @@ use PDO;
 trait PDOTrait
 {
     /**
-     * @param array $dsn // 为config 因为mysqli没有dsn连接方式
+     * @param string $dsn // 为config 因为mysqli没有dsn连接方式
      * @param string $username
      * @param string $password
      * @param array $options
@@ -21,14 +21,12 @@ trait PDOTrait
 
         // initiate the connection to the server, using both previously specified timeouts
         $this->mysqli->real_connect(
-            $dsn['host'],
-            $dsn['username'] ?? null,
-            $dsn['password'] ?? null,
-            $dsn['database'],
-            $dsn['port'],
+            $dsn,
+            $username ?? null,
+            $password ?? null,
         );
 
-        parent::__construct($dsn['dsn'], $username, $password, $options);
+        parent::__construct($dsn, $username, $password, $options);
     }
 
     /**
