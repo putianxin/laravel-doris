@@ -45,11 +45,9 @@ class DorisConnector extends MySqlConnector
     protected function createPdoConnection($dsn, $username, $password, $options)
     {
         // 判断php版本8
-        if (strpos(PHP_VERSION, '8') === 0) {
-            return new \Ptx\LaravelDoris\Database\PDO\MysqliAsPDO($dsn, $username, $password, $options);
-        } else {
-            return new \Ptx\LaravelDoris\Database\PDO74\MysqliAsPDO($dsn, $username, $password, $options);
-        }
+        return version_compare(phpversion(), '8.4.0', '<')
+            ? new PDO($dsn, $username, $password, $options)
+            : PDO::connect($dsn, $username, $password, $options);
     }
 
     /**
