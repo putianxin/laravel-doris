@@ -15,7 +15,8 @@ trait PDOTrait
     public function __construct($dsn, $username, $password, $options = array())
     {
         $this->mysqli = mysqli_init();
-
+        $config = json_decode($dsn, true);
+        $dsn = $config["dsn"];
         // 设置
         $this->buildOptions($options);
 
@@ -24,6 +25,8 @@ trait PDOTrait
             $dsn,
             $username ?? null,
             $password ?? null,
+            $config['database'],
+            $config['port'],
         );
 
         parent::__construct($dsn, $username, $password, $options);
