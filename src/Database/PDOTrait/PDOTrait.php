@@ -22,7 +22,7 @@ trait PDOTrait
 
         // initiate the connection to the server, using both previously specified timeouts
         $this->mysqli->real_connect(
-            $dsn,
+            $config['host'],
             $username ?? null,
             $password ?? null,
             $config['database'],
