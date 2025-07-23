@@ -7,7 +7,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "ptx\\LaravelDoris\\": "src/"
+            "Ptx\\LaravelDoris\\": "src/"
         }
     },
     "authors": [
