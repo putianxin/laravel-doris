@@ -28,7 +28,17 @@ class DorisConnector extends MySqlConnector
             $connection->exec("use `{$config['database']}`;");
         }
 
-        $this->configureConnection($connection, $config);
+        $this->configureIsolationLevel($connection, $config);
+
+        $this->configureEncoding($connection, $config);
+
+        // Next, we will check to see if a timezone has been specified in this config
+        // and if it has we will issue a statement to modify the timezone with the
+        // database. Setting this DB timezone is an optional configuration item.
+        $this->configureTimezone($connection, $config);
+
+        $this->setModes($connection, $config);
+
 
         return $connection;
     }
