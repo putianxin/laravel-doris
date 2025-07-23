@@ -17,12 +17,13 @@ class DorisConnector extends MySqlConnector
     {
         $dsn = $this->getDsn($config);
         $options = $this->getOptions($config);
-
+        $cpConfig = $config;
+        $cpConfig['dsn'] = $dsn;
         // We need to grab the PDO options that should be used while making the brand
         // new connection instance. The PDO options control various aspects of the
         // connection's behavior, and some might be specified by the developers.
         // 这里mysqli dsn用config
-        $connection = $this->createConnection($dsn, $config, $options);
+        $connection = $this->createConnection($cpConfig, $config, $options);
 
         if (!empty($config['database'])) {
             $connection->exec("use `{$config['database']}`;");
