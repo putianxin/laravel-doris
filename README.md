@@ -10,7 +10,7 @@ PDO<br/>
 
 ## Installation
 
-    composer require "Ptx/laravel-doris":"3.0.1"
+    composer require "Ptx/laravel-doris":"3.0.2"
 
 ## Use
 ```
