@@ -1,7 +1,7 @@
 # Laravel-doris
 让drois和starrocks直接使用查询构造器和ORM<br/>
 This laravel extension adds support for doris and starrocks to the query builder and eloquent.<br/>
-另外有支持cte的版本<br>
+另外有支持cte的版本请查看wukongdontskipschool/laravel-doris 暂未实现<br>
 There are also versions that support cte
 
 ## Require
@@ -10,10 +10,7 @@ PDO<br/>
 
 ## Installation
 
-    composer require "Ptx/laravel-doris":"2.0.0.2-dev"
-
-    // cte
-    composer require "Ptx/laravel-doris":"dev-cte-2.0.0.2"
+    composer require "Ptx/laravel-doris":"3.0.0"
 
 ## Use
 ```
