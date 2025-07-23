@@ -1,9 +1,9 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris\Database\PDO;
+namespace Ptx\LaravelDoris\Database\PDO;
 
 use \PDOStatement;
-use Wukongdontskipschool\LaravelDoris\Database\PDOTrait\PDOStatementTrait;
+use Ptx\LaravelDoris\Database\PDOTrait\PDOStatementTrait;
 
 /**
  * @deprecated
@@ -14,6 +14,9 @@ class MysqliStmtAsPDOStatement extends PDOStatement
 
     public function fetchAll(int $mode = \PDO::FETCH_DEFAULT, ...$args): array
     {
+        if(!$this->queryResult){
+            return [];
+        }
         // return parent::fetchAll($mode, ...$args);
         $result = [];
         if ($this->fetchMode === \PDO::FETCH_OBJ) {
@@ -27,7 +30,7 @@ class MysqliStmtAsPDOStatement extends PDOStatement
         return $result;
     }
 
-        /**
+    /**
      * 获取单行数据
      * @param int $mode
      * @param int $cursorOrientation
@@ -39,6 +42,9 @@ class MysqliStmtAsPDOStatement extends PDOStatement
         int $cursorOrientation = \PDO::FETCH_ORI_NEXT,
         int $cursorOffset = 0
     ): mixed {
+        if(!$this->queryResult){
+            return [];
+        }
         // return parent::fetch();
         if ($this->fetchMode === \PDO::FETCH_OBJ) {
             return $this->queryResult->fetch_object();

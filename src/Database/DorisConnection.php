@@ -1,6 +1,6 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris\Database;
+namespace Ptx\LaravelDoris\Database;
 
 use Illuminate\Database\MySqlConnection;
 

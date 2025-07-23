@@ -1,9 +1,9 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris\Database\PDO74;
+namespace Ptx\LaravelDoris\Database\PDO74;
 
 use \PDOStatement;
-use Wukongdontskipschool\LaravelDoris\Database\PDOTrait\PDOStatementTrait;
+use Ptx\LaravelDoris\Database\PDOTrait\PDOStatementTrait;
 
 /**
  * @deprecated

@@ -1,9 +1,9 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris\Database\PDO74;
+namespace Ptx\LaravelDoris\Database\PDO74;
 
 use \PDO;
-use Wukongdontskipschool\LaravelDoris\Database\PDOTrait\PDOTrait;
+use Ptx\LaravelDoris\Database\PDOTrait\PDOTrait;
 
 /**
  * @deprecated

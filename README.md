@@ -10,10 +10,10 @@ PDO<br/>
 
 ## Installation
 
-    composer require "wukongdontskipschool/laravel-doris":"2.0.0.2-dev"
+    composer require "Ptx/laravel-doris":"2.0.0.2-dev"
 
     // cte
-    composer require "wukongdontskipschool/laravel-doris":"dev-cte-2.0.0.2"
+    composer require "Ptx/laravel-doris":"dev-cte-2.0.0.2"
 
 ## Use
 ```
@@ -45,7 +45,7 @@ PDO<br/>
 ```
 // bootstrap/app.php
 // add
-$app->register(\Wukongdontskipschool\LaravelDoris\DatabaseServiceProvider::class);
+$app->register(\Ptx\LaravelDoris\DatabaseServiceProvider::class);
 ```
 
 ## 备注 Remark

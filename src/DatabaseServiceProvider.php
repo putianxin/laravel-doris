@@ -1,6 +1,6 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris;
+namespace Ptx\LaravelDoris;
 
 use Illuminate\Support\ServiceProvider;
 

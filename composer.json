@@ -1,29 +1,29 @@
 {
-    "name": "wukongdontskipschool/laravel-doris",
+    "name": "ptx/laravel-doris",
     "description": "This laravel extension adds support for doris and starrocks to the query builder and eloquent.",
     "keywords": ["laravel-doris", "doris-orm", "laravel-starrocks", "starrocks-orm"],
-    "homepage": "https://github.com/wukongdontskipschool/laravel-doris",
+    "homepage": "https://github.com/Ptx/laravel-doris",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Wukongdontskipschool\\LaravelDoris\\": "src/"
+            "ptx\\LaravelDoris\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "wukongdontskipschool"
+            "name": "Ptx"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/database": "*"
+        "php": "^8.0",
+        "illuminate/database": "^12.0"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Wukongdontskipschool\\LaravelDoris\\DatabaseServiceProvider"
+                "Ptx\\LaravelDoris\\DatabaseServiceProvider"
             ]
         }
     }

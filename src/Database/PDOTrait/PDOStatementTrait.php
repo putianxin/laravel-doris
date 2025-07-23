@@ -1,6 +1,6 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris\Database\PDOTrait;
+namespace Ptx\LaravelDoris\Database\PDOTrait;
 
 trait PDOStatementTrait
 {

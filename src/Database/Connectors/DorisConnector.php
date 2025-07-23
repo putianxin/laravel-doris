@@ -1,6 +1,6 @@
 <?php
 
-namespace Wukongdontskipschool\LaravelDoris\Database\Connectors;
+namespace Ptx\LaravelDoris\Database\Connectors;
 
 use Illuminate\Database\Connectors\MySqlConnector;
 use PDO;
@@ -17,29 +17,18 @@ class DorisConnector extends MySqlConnector
     {
         $dsn = $this->getDsn($config);
         $options = $this->getOptions($config);
-        $cpConfig = $config;
-        $cpConfig['dsn'] = $dsn;
 
         // We need to grab the PDO options that should be used while making the brand
         // new connection instance. The PDO options control various aspects of the
         // connection's behavior, and some might be specified by the developers.
         // 这里mysqli dsn用config
-        $connection = $this->createConnection($cpConfig, $config, $options);
+        $connection = $this->createConnection($dsn, $config, $options);
 
         if (!empty($config['database'])) {
             $connection->exec("use `{$config['database']}`;");
         }
 
-        $this->configureIsolationLevel($connection, $config);
-
-        $this->configureEncoding($connection, $config);
-
-        // Next, we will check to see if a timezone has been specified in this config
-        // and if it has we will issue a statement to modify the timezone with the
-        // database. Setting this DB timezone is an optional configuration item.
-        $this->configureTimezone($connection, $config);
-
-        $this->setModes($connection, $config);
+        $this->configureConnection($connection, $config);
 
         return $connection;
     }
@@ -57,9 +46,9 @@ class DorisConnector extends MySqlConnector
     {
         // 判断php版本8
         if (strpos(PHP_VERSION, '8') === 0) {
-            return new \Wukongdontskipschool\LaravelDoris\Database\PDO\MysqliAsPDO($dsn, $username, $password, $options);
+            return new \Ptx\LaravelDoris\Database\PDO\MysqliAsPDO($dsn, $username, $password, $options);
         } else {
-            return new \Wukongdontskipschool\LaravelDoris\Database\PDO74\MysqliAsPDO($dsn, $username, $password, $options);
+            return new \Ptx\LaravelDoris\Database\PDO74\MysqliAsPDO($dsn, $username, $password, $options);
         }
     }
 
