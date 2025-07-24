@@ -59,14 +59,15 @@ cursor() 不是真的游标，doris还是会一次性全部返回
 
 | Laravel | Package |
 |:--------|:--------|
-| 11.x    | unknown    |
-| 10.x    | 2.0.0.x     |
-| 9.x     | unknown     |
-| 8.x     | 2.0.0.x   |
-| 7.x     | unknown     |
-| 6.x     | unknown     |
-| 5.8     | unknown     |
-| 5.5–5.7 | unknown     |
+| 12.x    | 3.0.x   |
+| 11.x    | unknown |
+| 10.x    | 2.0.x   |
+| 9.x     | 2.0.x   |
+| 8.x     | 2.0.x   |
+| 7.x     | unknown |
+| 6.x     | unknown |
+| 5.8     | unknown |
+| 5.5–5.7 | unknown |
 
 
 ## 升级事项 Upgrade Notes
