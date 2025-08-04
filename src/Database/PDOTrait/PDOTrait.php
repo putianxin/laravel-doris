@@ -32,6 +32,11 @@ trait PDOTrait
         parent::__construct($dsn, $username, $password, $options);
     }
 
+    public function disconnect()
+    {
+        return $this->mysqli->close();
+    }
+
     /**
      * @param array $options
      */
